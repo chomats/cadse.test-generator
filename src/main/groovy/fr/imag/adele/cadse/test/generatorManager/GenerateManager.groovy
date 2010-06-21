@@ -1,9 +1,14 @@
 package fr.imag.adele.cadse.test.generatorManager
 
+import java.util.Arrays;
+
 import groovy.text.GStringTemplateEngine;
 
 class GenerateManager {
-
+	public void addImports(String ...imports) {
+		this.imports.addAll(Arrays.asList (imports));
+	}
+	
 	String cadsePackageName = 'model.CADSE_UI';
 	def imports = [ 'fr.imag.adele.cadse.core.CadseGCST',
 	'fr.imag.adele.cadse.core.InitAction',
