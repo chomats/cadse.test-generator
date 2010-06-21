@@ -76,8 +76,9 @@ class GenerateManager {
 	String managerTemplate ='''\
 package ${cadsePackageName}.managers;
 
-	<% for (i in imports) print "import $i;\n" %>
-
+<% for (i in imports) {%>
+		import ${i}; 
+<%  } %>
 	/**
 	    @generated
 	*/
