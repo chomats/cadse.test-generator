@@ -19,10 +19,11 @@ class GenerateGroupPart extends GeneratePart {
 	
 	String template = '''		{
 		// ${gp.description}
-		GroupOfAttributesDescriptor ${gp.groupVar} = PageInit.createGroup("${gp.label}", ${gp.column}, ${gp.hasBox}
-				${gp.attributeCST.join(', '));
+		GroupOfAttributesDescriptor ${gp.groupVar} = PageInit.createGroup("${gp.label}", ${gp.column}, ${gp.hasBox},
+				${gp.attributeCST.join(', ')});
 		${gp.attachedType}.addGroupOfAttributes(${gp.groupVar});
-<%if (gp.overrideGroup != null) println "		${gp.groupVar}.setOverWriteGroup(${gp.overrideGroup});" %>
+<%if (gp.overrideGroup != null) {%>
+		  ${gp.groupVar}.setOverWriteGroup(${gp.overrideGroup});<%} %>
 		
 		}
 		'''
