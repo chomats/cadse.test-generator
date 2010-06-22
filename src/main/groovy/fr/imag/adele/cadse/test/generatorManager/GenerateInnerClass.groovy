@@ -8,7 +8,7 @@ class GenerateInnerClass  extends GeneratePart {
 		String extendedClassName = 'DTextUI<RuningInteractionController>'
 			String body = '';
 	String template = '''
-		static class ${className} extends ${extendedClassName} {
+		static public class ${className} extends ${extendedClassName} {
 		
 		$body
 	}
