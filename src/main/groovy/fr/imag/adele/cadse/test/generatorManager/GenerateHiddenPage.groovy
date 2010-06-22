@@ -10,9 +10,9 @@ class GenerateHiddenPage  extends GeneratePart {
 	String label= 'Hidden attributes'
 	String title= 'Hidden attributes'
 	String description= 'Hidden attributes'
-	def hiddenAttributes = ['CADSE_UICST.IT_A_at_ATTR_']
+	def hiddenAttributes = []
 	
-	String typeAttached = 'CADSE_UICST.IT_B';
+	String typeAttached = '';
 	
 	String template ='''\
 	{
@@ -27,6 +27,10 @@ class GenerateHiddenPage  extends GeneratePart {
 	<% if (cst != null) { print "$cst = $cltHiddenAttributes"%>
 	}
 '''
+		
+	public void addHiddenAttribute(String attrCst) {
+		hiddenAttributes.add(attrCst);
+	}
 	
 	public String initPart() {	
 		def binding = [

@@ -22,7 +22,7 @@ class GenerateFieldPart extends GeneratePart {
 		<%}>
 		UIField field = new UIFieldImpl($uiType, UUID.randomUUID(),
 				$attr, "$label", pos, mc, ${ic == null ? 'null': $ic);
-		<% if (mcClass != null) {>
+		<% if (fieldClass != null) {>
 		CreatedObjectManager.register(SWTUIPlatform.getPlatform(), field, ${fieldClass}.class);
 		<%}>
 		${attachedType}.addField(field);

@@ -105,6 +105,14 @@ ${commonMethods}
 	}
 		'''
 		
+	public void addInnerPart(GeneratePart gi) {
+		innerParts.add(gi);
+	}
+	
+	public void addInitPart(GeneratePart gp) {
+		initParts.add(gp);
+	}
+		
 	public String classPart() {	
 		Set<String> importsLoc = new HashSet<String>(imports);
 		
