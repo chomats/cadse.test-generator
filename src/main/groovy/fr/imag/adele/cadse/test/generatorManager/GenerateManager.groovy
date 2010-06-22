@@ -10,23 +10,7 @@ class GenerateManager {
 	}
 	
 	String cadsePackageName = 'model.CADSE_UI';
-	def imports = [ 'fr.imag.adele.cadse.core.CadseGCST',
-	'fr.imag.adele.cadse.core.InitAction',
-	'fr.imag.adele.cadse.core.Item',
-	'fr.imag.adele.cadse.core.ItemType',
-	'fr.imag.adele.cadse.core.LinkType',
-	'fr.imag.adele.cadse.core.ui.EPosLabel',
-	'fr.imag.adele.cadse.core.ui.IPage',
-	'fr.imag.adele.cadse.core.ui.RuningInteractionController',
-	'fr.imag.adele.cadse.core.ui.UIField',
-	'fr.imag.adele.cadse.core.util.CreatedObjectManager',
-	'model.CADSE_UI.CADSE_UICST',
-	'fr.imag.adele.cadse.core.impl.ui.PageImpl',
-	'fr.imag.adele.cadse.core.impl.ui.UIFieldImpl',
-	'fr.imag.adele.cadse.core.impl.ui.ic.IC_Descriptor',
-	'fr.imag.adele.cadse.core.impl.ui.mc.MC_Descriptor',
-	'fr.imag.adele.cadse.si.workspace.uiplatform.swt.SWTUIPlatform',
-	'fr.imag.adele.cadse.si.workspace.uiplatform.swt.ui.DTextUI'];
+	def imports = [ ];
 	
 	def initParts = [];
 	def innerParts = [];
@@ -77,8 +61,8 @@ class GenerateManager {
 package ${cadsePackageName}.managers;
 
 <% for (i in imports) {%>
-		import ${i}; 
-<%  } %>
+import ${i}; <%}%>
+		
 	/**
 	    @generated
 	*/
@@ -93,13 +77,13 @@ package ${cadsePackageName}.managers;
 
 ${commonMethods}
 
-<% for (i in innerParts) print i.innerPart() %>		
+<% for (i in innerParts) {%>
+${i.innerPart()} <%}%>
 
 		@Override
 		public void init() {
-			
-			<% for(ip in initParts) print ip.initPart() %>
-			
+			<% for (i in initParts) {%>
+			${i.initPart()} <%}%>
 		}
 
 	}

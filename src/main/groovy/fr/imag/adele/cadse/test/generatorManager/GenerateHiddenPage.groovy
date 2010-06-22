@@ -20,12 +20,15 @@ class GenerateHiddenPage  extends GeneratePart {
 	IPage ${cltHiddenAttributes} = new PageImpl(UUID.randomUUID(), 
 			"${name}", "${label}",
 			"${title}", "${description}", false, null);
-	cltHiddenAttributes.addHiddenAttributes(${hiddenAttributes.join(', ')});
+	${cltHiddenAttributes}.addHiddenAttributes(${hiddenAttributes.join(', ')});
 	${typeAttached}.addModificationPages(${cltHiddenAttributes});
 	${typeAttached}.addCreationPages(${cltHiddenAttributes});
 	
-	<% if (cst != null) { print "$cst = $cltHiddenAttributes"%>
-	}
+	<% if (cst != null) { %>
+		${cst} = ${cltHiddenAttributes};
+	<% } %>
+		
+		}
 '''
 		
 	public void addHiddenAttribute(String attrCst) {
