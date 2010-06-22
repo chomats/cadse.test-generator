@@ -16,12 +16,12 @@ class GenerateFieldPart extends GeneratePart {
 	
 	String template = '''
 		{
-		MC_Descriptor mc = new MC_Descriptor(mcType${mcExtra == null ? '':", $mcExtra"})
+		MC_Descriptor mc = new MC_Descriptor(mcType${mcExtra == null ? '':", "+mcExtra})
 		<% if (mcClass != null) {>
 		CreatedObjectManager.register(SWTUIPlatform.getPlatform(), mc, ${mcClass}.class);
 		<%}>
 		UIField field = new UIFieldImpl($uiType, UUID.randomUUID(),
-				$attr, "$label", pos, mc, ${ic == null ? 'null': $ic);
+				${attr}, "${label}", ${pos}, mc, ${ic == null ? 'null': ic});
 		<% if (fieldClass != null) {>
 		CreatedObjectManager.register(SWTUIPlatform.getPlatform(), field, ${fieldClass}.class);
 		<%}>
