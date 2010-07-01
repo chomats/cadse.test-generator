@@ -5,7 +5,8 @@ import fr.imag.adele.cadse.core.impl.ui.GroupOfAttributesDescriptor;
 
 class GenerateGroupPart extends GeneratePart {
 	public GenerateGroupPart() {
-		addImports 'fr.imag.adele.cadse.core.impl.ui.GroupOfAttributesDescriptor', 'fr.imag.adele.cadse.cadseg.pages.PageInit'
+		addImports 'fr.imag.adele.cadse.core.impl.ui.GroupOfAttributesDescriptor', 
+		'fr.imag.adele.cadse.cadseg.pages.PageInit'
 	}
 	String description = 'Group XXXX';
 	String groupVar = 'groupVar';
